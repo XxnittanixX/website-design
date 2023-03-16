@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+  <nav>
+    <ul>
+      <li><a href="polarnight.html">POALAR NIGHT</a></li>
+      <li><a href="snowstorm.html">SNOWSTORM</a></li>
+      <li><a href="frost.html">FROST</a></li>
+      <li><a href="Aurora.html">AROURA</a></li>
+    </ul>
+  </nav>
+  <style>
+      nav {
+        background-color: #333;
+        height: 50px;
+      }
+      
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+        padding: 16px;
+        text-decoration: none;
+      }
+      
+  </style>
+
+
+
+</header>
+<br></br>
+<body>
+  <meta charset="UTF-8">
+  <title>Snow Storm Colors</title>
+  <div id="colors-container">
+    <div class="color-box" style="background-color: #BF616A" onclick="copyToClipboard('#BF616A')">
+      <div class="tooltip">#BF616A</div>
+    </div>
+    <div class="color-box" style="background-color: #D08770" onclick="copyToClipboard('#D08770')">
+      <div class="tooltip">#D08770</div>
+    </div>
+    <div class="color-box" style="background-color: #EBCB8B" onclick="copyToClipboard('#EBCB8B')">
+      <div class="tooltip">#EBCB8B</div>
+    </div>
+    <div class="color-box" style="background-color: #A3BE8C" onclick="copyToClipboard('#A3BE8C')">
+      <div class="tooltip">#A3BE8C</div>
+    </div>
+      <div class="color-box" style="background-color:#B48EAD " onclick="copyToClipboard('#B48EAD')">
+        <div class="tooltip">#B48EAD</div>
+      </div>
+    </div>
+
+
+
+</body>
+<!-- this shows the colors-->
+<body1>
+
+  
+  
+  
+
+<!--makes more boxes with random colors 
+class type:button
+can style button to img -->
+<footer>
+<br
+    <div>
+    <button onclick="addColorBox()">Add Color Box</button>
+    </div>
+</footer>
+
+
+
+
+
+<!--these are the scripts -->  
+<script>
+    function copyToClipboard(hexcode) {
+      const el = document.createElement('textarea');
+      el.value = hexcode;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      alert(`Copied ${hexcode} to clipboard!`);
+    }
+</script>
+    
+  <script>
+    function addColorBox() {
+      const container = document.querySelector('#colors-container');
+      const newBox = document.createElement('div');
+      newBox.classList.add('color-box');
+      const newHexcode = `#${Math.floor(Math.random()*16777215).toString(16)}`
+      newBox.style.backgroundColor = newHexcode;
+      newBox.onclick = () => copyToClipboard(newHexcode);
+      const newTooltip = document.createElement('div');
+      newTooltip.classList.add('tooltip');
+      newTooltip.innerText = newHexcode;
+      newBox.appendChild(newTooltip);
+      container.appendChild(newBox);
+    }
+  </script>
+</body1>
+<!-- styles section
+colorbox style -->
+<style>
+    .color-box {
+        <!--makes a  inline flexbox-->
+          display: inline-flexbox ;
+          width: 50px;
+          height: 50px;
+          margin-right: 5px;
+        }
+    
+        .tooltip {
+          display: none;
+          position: absolute;
+          z-index: 1;
+          padding: 5px;
+          font-colo
+          background-color: #333;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+        }
+    
+        .color-box:hover .tooltip {
+          display: block;
+        }
+    </style>
+
+</html>
